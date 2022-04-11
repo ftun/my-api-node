@@ -1,12 +1,12 @@
-import express, {Request, Response} from 'express';
+import express from 'express';
+import routes from './routes/index';
 
 const app = express();
 app.use(express.json());
 const port = 3000;
 
-app.get('/', (_req: Request, res: Response): void => {
-    res.json({ message: "Api Node", date: Date.now() });
-});
+app.use('/api', routes);
+
 
 app.listen(port, () => {
     // if (err) {
